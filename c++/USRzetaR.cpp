@@ -7,12 +7,12 @@
 #define DOTX0 (1./(5e+8)/sqrt(2))
 #define DOTXF (1./(2e+14)/sqrt(10)/M_PI)
 #define XF ((DOTX0-DOTXF)/3/HH)
-#define NF 8
+#define NF 40
 
 #define XMIN -20
-#define XMAX 14
+#define XMAX 15
 #define NMIN 0
-#define NMAX 9
+#define NMAX 41
 #define HX 0.1
 #define HN 0.1
 
