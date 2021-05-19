@@ -1,8 +1,8 @@
 MODEL = USRzetaR
 SOURCE = source
 
-CXX := g++
-CXXFLAGS := -std=c++11 -O3 -Xpreprocessor -fopenmp -lomp
+CXX := g++-11
+CXXFLAGS := -std=c++11 -O3 -fopenmp
 
 $(MODEL): $(MODEL).o $(SOURCE)/JacobiPDE.o $(SOURCE)/SRK32.o $(SOURCE)/StocDeltaN.o
 	$(CXX) $(CXXFLAGS) -o $(MODEL) $(MODEL).o $(SOURCE)/JacobiPDE.o $(SOURCE)/SRK32.o $(SOURCE)/StocDeltaN.o
