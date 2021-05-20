@@ -7,17 +7,17 @@
 #define DOTX0 (1./(5e+8)/sqrt(2))
 #define DOTXF (1./(2e+14)/sqrt(10)/M_PI)
 #define XF ((DOTX0-DOTXF)/3/HH)
-#define NF 40
+//#define NF 40
 
 #define XMIN -20
-#define XMAX 15
+#define XMAX 30
 #define NMIN 0
-#define NMAX 41
+#define NMAX 8 //40
 #define HX 0.1
 #define HN 0.1
 
-#define MAXSTEP 100000
-#define TOL 1e-10
+#define MAXSTEP (1e+6)
+#define TOL (1e-10)
 
 double Bf(double NN);
 
@@ -87,7 +87,7 @@ double StocDeltaN::DIJ(int xpI, int I, int xpJ, int J, vector< vector<double> > 
 }
 
 bool StocDeltaN::EndSurface(vector< vector<double> > &psv) {
-  return psv[0][0] <= Bf(psv[0][1]) && psv[0][1] <= NF;
+  return psv[0][0] <= Bf(psv[0][1]); //&& psv[0][1] <= NF;
 }
 
 double Bf(double NN) {

@@ -1,4 +1,4 @@
-MODEL = USRzetaR
+MODEL = USRPFPT
 SOURCE = source
 
 CXX := g++-11

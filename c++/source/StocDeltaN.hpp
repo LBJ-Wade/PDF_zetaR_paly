@@ -39,12 +39,12 @@ public:
   //virtual double inversemetric(vector<double> &X, int I, int J);
   //virtual double affine(vector<double> &X, int I, int J, int K);
   //virtual double derGamma(vector<double> &X, int I, int J, int K, int L); // Gamma^I_{JK,L}
-  //virtual void BoundaryCondition(double Ncut);
+  virtual void BoundaryCondition();
   //virtual double H(vector<double> &X, vector<double> &P);
   virtual double DI(int xp, int I, vector< vector<double> > &psv);
   virtual double DIJ(int xpI, int I, int xpJ, int J, vector< vector<double> > &psv);
   //virtual double gIa(int xp, int I, int alpha, vector< vector<double> > &psv);
-  //virtual double CC(int num, vector< vector<double> > &psv, int func);
+  virtual double CC(int num, vector< vector<double> > &psv, int func);
   virtual bool EndSurface(vector< vector<double> > &psv);
 };
 
