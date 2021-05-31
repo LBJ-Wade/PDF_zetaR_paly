@@ -3,6 +3,7 @@
 // ------------------- user decision -----------------------
 // ---------------------------------------------------------
 
+/*
 double JacobiPDE::H(vector<double> &X, vector<double> &P) // Hubble parameter
 {
   double rho = V(X);
@@ -91,12 +92,14 @@ double JacobiPDE::derGamma(vector<double> &X, int I, int J, int K, int L) // Gam
     return 0;
   }
 }
+*/
 
 // ---------------------------------------------------------
 /* 
 solve (DI(xp,I) \partial_xpI + 1./2 DIJ(xpI,xpJ) \partial_xpI \partial_xpJ) f = CC
 func swithes f.
 */
+/*
 double JacobiPDE::DI(int xp, int I, vector< vector<double> > &psv)
 {
   double DI = 0;
@@ -206,6 +209,7 @@ double JacobiPDE::CC(int num, vector< vector<double> > &psv, int func)
 
   return CC;
 }
+*/
 // ---------------------------------------------------------
 
 void JacobiPDE::BoundaryCondition() // set boundary condition
@@ -225,7 +229,7 @@ void JacobiPDE::BoundaryCondition() // set boundary condition
     if (EndSurface(PSV0)) { // if the site is in inflationary region
       Omega[number] = true; // to be solved
       for (int func=0; func<funcNo; func++) {
-	ff[func][number] = rand()%1; // set IC for function f randomly
+	ff[func][number] = (rand()%11)/10.; //rand()%1; // set IC for function f randomly
       }
     } else {
       Omega[number] = false; // no to be solved
@@ -315,6 +319,7 @@ void JacobiPDE::BoundaryCondition() // set boundary condition
   }
 }
 
+/*
 bool JacobiPDE::EndSurface(vector< vector<double> > &psv)
 {
   if (xpdim == 1) {
@@ -325,6 +330,7 @@ bool JacobiPDE::EndSurface(vector< vector<double> > &psv)
     return 0;
   }
 }
+*/
 
 // ---------------------------------------------------------
 // ---------------------------------------------------------

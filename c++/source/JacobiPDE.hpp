@@ -60,13 +60,13 @@ public:
   int ceilXP(int xp, int I, vector< vector<double> > &psv); // ceil of phase-space value psv in xpI direction
   double Interpolation_f(vector< vector<double> > &psv, int func); // interpolation of func
   void export_fg(string filename); // export func to data file
-  virtual double H(vector<double> &X, vector<double> &P); // Hubble parameter
-  virtual double V(vector<double> &X); // potential
-  virtual double VI(vector<double> &X, int I); // \partial_I V
-  virtual double metric(vector<double> &X, int I, int J); // field-space metric G_IJ
-  virtual double inversemetric(vector<double> &X, int I, int J); // inverse field-space metric G^IJ
-  virtual double affine(vector<double> &X, int I, int J, int K); // Christoffel symbol Gamma^I_JK
-  virtual double derGamma(vector<double> &X, int I, int J, int K, int L); // Gamma^I_{JK,L}
+  //virtual double H(vector<double> &X, vector<double> &P); // Hubble parameter
+  //virtual double V(vector<double> &X); // potential
+  //virtual double VI(vector<double> &X, int I); // \partial_I V
+  //virtual double metric(vector<double> &X, int I, int J); // field-space metric G_IJ
+  //virtual double inversemetric(vector<double> &X, int I, int J); // inverse field-space metric G^IJ
+  //virtual double affine(vector<double> &X, int I, int J, int K); // Christoffel symbol Gamma^I_JK
+  //virtual double derGamma(vector<double> &X, int I, int J, int K, int L); // Gamma^I_{JK,L}
   virtual double DI(int xp, int I, vector< vector<double> > &psv); 
   virtual double DIJ(int xpI, int I, int xpJ, int J, vector< vector<double> > &psv);
   virtual double CC(int num, vector< vector<double> > &psv, int func);

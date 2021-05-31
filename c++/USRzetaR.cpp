@@ -1,4 +1,5 @@
-#include "source/StocDeltaN.hpp"
+//#include "source/StocDeltaN.hpp"
+#include "source/JacobiPDE.hpp"
 #include <sys/time.h>
 
 #define MODEL "USRzetaR"
@@ -53,15 +54,23 @@ int main(int argc, char** argv)
   sitepack.push_back(xsite);
   xsite.clear();
 
-  vector<double> params = {MAXSTEP,TOL,1,0,(double)sitepack[0].size(),0,0,0,0,0};
+  vector<double> params = {MAXSTEP,TOL,1,0}; //,(double)sitepack[0].size(),0,0,0,0,0};
 
-  vector< vector<double> > xpi = {{0,0}};
+  //vector< vector<double> > xpi = {{0,0}};
 
+  /*
   StocDeltaN sdn(MODEL,sitepack,xpi,0,params);
   sdn.PDE_solve(0);
   string model = MODEL;
   string str = "Mn_" + model + ".dat";
   sdn.export_fg(str);
+  */
+
+  JacobiPDE pde(sitepack,params);
+  pde.PDE_solve(0);
+  string model = MODEL;
+  string str = "Mn_" + model + ".dat";
+  pde.export_fg(str);
  
 
   gettimeofday(&tv, &tz);
@@ -70,7 +79,7 @@ int main(int argc, char** argv)
 }
 
 
-double StocDeltaN::DI(int xp, int I, vector< vector<double> > &psv) {
+double JacobiPDE::DI(int xp, int I, vector< vector<double> > &psv) {
   if (I == 0) {
     return 0;
   } else {
@@ -78,7 +87,7 @@ double StocDeltaN::DI(int xp, int I, vector< vector<double> > &psv) {
   }
 }
 
-double StocDeltaN::DIJ(int xpI, int I, int xpJ, int J, vector< vector<double> > &psv) {
+double JacobiPDE::DIJ(int xpI, int I, int xpJ, int J, vector< vector<double> > &psv) {
   if (I == 0 && J == 0) {
     return 1;
   } else {
@@ -86,9 +95,14 @@ double StocDeltaN::DIJ(int xpI, int I, int xpJ, int J, vector< vector<double> > 
   }
 }
 
-bool StocDeltaN::EndSurface(vector< vector<double> > &psv) {
+double JacobiPDE::CC(int num, vector< vector<double> > &psv, int func) {
+  return -1;
+}
+
+bool JacobiPDE::EndSurface(vector< vector<double> > &psv) {
   return psv[0][0] <= Bf(psv[0][1]); //&& psv[0][1] <= NF;
 }
+
 
 double Bf(double NN) {
   return 2*M_PI*XF/HH - 2*M_PI*DOTX0/3/HH/HH*(1-exp(-3*NN));
