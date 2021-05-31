@@ -12,8 +12,8 @@
 #define XMAX 30
 #define NMIN 0
 #define NMAX 8 //40
-#define ITMIN 0
-#define ITMAX 0
+#define ITMIN 0.1
+#define ITMAX 0.1
 #define HIT 1
 #define HX 0.1
 #define HN 0.1
@@ -67,6 +67,11 @@ int main(int argc, char** argv)
   double funcNo = it.size();
   
   vector<double> params = {MAXSTEP,TOL,funcNo};
+
+  for (int i=0; i<funcNo; i++) {
+    cout << it[i] << ' ';
+  }
+  cout << endl;
 
   JacobiPDE pde(sitepack,it,params);
   for (int i=0; i<funcNo; i++) {

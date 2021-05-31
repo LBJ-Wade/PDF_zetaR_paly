@@ -497,7 +497,7 @@ void JacobiPDE::PDE_solve(int func)
     err = sqrt(err)/sqrt(u_norm);
     cout << "\rerr" << func+1 << " : " << setw(11) << left << err << "  step : " << step << flush;
 
-    if (err < tol) {
+    if (step > 100000) { //(err < tol) {
       break;
     }
   }
