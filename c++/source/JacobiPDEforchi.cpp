@@ -465,6 +465,7 @@ double JacobiPDE::PDE_1step(int num, int func)
   return uu;
 }
 
+/*
 void JacobiPDE::PDE_solve(int func)
 {
   double u_norm, err;
@@ -497,13 +498,14 @@ void JacobiPDE::PDE_solve(int func)
     err = sqrt(err)/sqrt(u_norm);
     cout << "\rerr" << func+1 << " : " << setw(11) << left << err << "  step : " << step << flush;
 
-    if (step > 100000) { //(err < tol) {
+    if (err < tol) {
       break;
     }
   }
 
   cout << endl;
 }
+*/
 
 int JacobiPDE::Ind2No(vector< vector<int> > &index)
 {
