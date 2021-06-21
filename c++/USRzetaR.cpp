@@ -11,7 +11,7 @@
 //#define NF 40
 
 #define XMIN -20
-#define XMAX 30
+#define XMAX 15
 #define NMIN 0
 #define NMAX 8 //40
 #define HX 0.1
